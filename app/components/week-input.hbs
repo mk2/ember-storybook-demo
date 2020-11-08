@@ -1,0 +1,105 @@
+<div class="row">
+  <div class="mx-auto col-md-8" style="margin-bottom: 20px">
+    <div class="row">
+      <div class="col-md-8">
+        <BsButton @type="success" @onClick={{@onSave}}>
+          保存
+        </BsButton>
+        <BsButton @type="danger" @onClick={{@onCancel}}>
+          キャンセル
+        </BsButton>
+      </div>
+      <div class="col-md-4">
+        <div class="input-group flex-nowrap">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="addon-wrapping">
+              記入者名
+            </span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            placeholder=""
+            aria-label="表示名"
+            aria-describedby="addon-wrapping"
+            value={{@scheduleInput.name}}
+            {{on "change" this.updateName}}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" {{did-insert setupHours}}>
+  <div class="mx-auto col-md-8">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            月
+          </td>
+          <td>
+            <DayInput
+              @hours={{hours}}
+              @selectedHours={{@scheduleInput.monHours}}
+              @onChange={{action (mut this.args.scheduleInput.monHours)}}
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            火
+          </td>
+          <td>
+            <DayInput
+              @hours={{hours}}
+              @selectedHours={{@scheduleInput.tueHours}}
+              @onChange={{action (mut @scheduleInput.tueHours)}}
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            水
+          </td>
+          <td>
+            <DayInput
+              @hours={{hours}}
+              @selectedHours={{@scheduleInput.wedHours}}
+              @onChange={{action (mut @scheduleInput.wedHours)}}
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            木
+          </td>
+          <td>
+            <DayInput
+              @hours={{hours}}
+              @selectedHours={{@scheduleInput.thuHours}}
+              @onChange={{action (mut @scheduleInput.thuHours)}}
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            金
+          </td>
+          <td>
+            <DayInput
+              @hours={{hours}}
+              @selectedHours={{@scheduleInput.friHours}}
+              @onChange={{action (mut @scheduleInput.friHours)}}
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

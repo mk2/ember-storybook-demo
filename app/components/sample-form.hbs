@@ -1,0 +1,13 @@
+<BsForm @formLayout="vertical" @model={{this}} @onSubmit={{action "submit"}} as |form|>
+  <form.element
+    @controlType="text"
+    @label="タイトル"
+    @placeholder="タイトル"
+    @property="title"
+    @required={{true}}
+  />
+  <form.element @controlType="textarea" @label="説明" @property="description" />
+  <form.submitButton>
+    作成
+  </form.submitButton>
+</BsForm>

@@ -1,0 +1,7 @@
+<BsButtonGroup @value={{@selectedHours}} @type="checkbox" @onChange={{@onChange}} as |bg|>
+  {{#each @hours as |time|}}
+    <bg.button @type="info" @outline={{true}} @value={{time}}>
+      {{time}}
+    </bg.button>
+  {{/each}}
+</BsButtonGroup>
